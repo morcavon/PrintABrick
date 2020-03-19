@@ -215,8 +215,12 @@ class ModelLoader extends BaseLoader
      *
      * @return Model|null|false
      */
-    public function loadModel($file)
+    public function loadModel($file, $iteration=0)
     {
+        if($iteration >= 20) {
+                 $this->logger->error("Too many submodels. Skipping", [$file]);
+                 return false;
+        }
         /** @var ModelRepository $modelRepository */
         $modelRepository = $this->em->getRepository(Model::class);
 
@@ -238,7 +242,7 @@ class ModelLoader extends BaseLoader
         if ($this->isModelIncluded($modelArray)) {
             // Recursively load model parent (if any) and add model id as alias of parent
             if (($parentId = $this->getParentId($modelArray)) && ($parentModelFile = $this->findSubmodelFile($parentId)) !== null) {
-                if ($parentModel = $this->loadModel($parentModelFile)) {
+                if ($parentModel = $this->loadModel($parentModelFile, $iteration+1)) {
                     // Remove old model if ~moved to
                     if ($this->rewrite && ($old = $modelRepository->find($modelArray['id'])) != null) {
                         $modelRepository->delete($old);
