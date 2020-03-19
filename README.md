@@ -1,3 +1,12 @@
+# Changes
+
+src/LoaderBundle/Service/ModelLoader.php
+Added an iteration counter for parent models and abort model if it has too many parents.
+
+src/LoaderBundle/Service/RebrickableLoader.php
+Added a fourth column "material_id" which is new in the csv file. You have to add this field in the database manually! (material_id, varchar 128, null)
+
+
 # PrintABrick
 Web catalogue of LEGO® parts for 3D printing
 
