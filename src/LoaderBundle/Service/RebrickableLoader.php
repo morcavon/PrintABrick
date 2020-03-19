@@ -181,7 +181,7 @@ class RebrickableLoader extends BaseLoader
 
     private function loadPartTable($csv)
     {
-        return $this->loadCsvFile($csv, 'rebrickable_part', '(`id`,`name`,`category_id`)');
+        return $this->loadCsvFile($csv, 'rebrickable_part', '(`id`,`name`,`category_id`,`material_id`)');
     }
 
     private function loadCategoryTable($csv)
