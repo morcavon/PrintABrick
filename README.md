@@ -44,8 +44,13 @@ You can enable dev mode with /app_dev.php
 ---
 
 If you got an error like
+`500 Internal Server Error`
 
-`no such index [index: app]`
+and
+
+`no such index [index: app_prod]`
+
+in the project logs under [printabrick]/var/logs/prod.log
 
 The elasticsearch index must be build:
 
