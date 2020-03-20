@@ -19,6 +19,8 @@ If you run PHP > 7.2, then you have to run composer with
 `composer install --ignore-platform-reqs`
 
 
+From this point on, the original Readme text:
+
 # PrintABrick
 Web catalogue of LEGO® parts for 3D printing
 
