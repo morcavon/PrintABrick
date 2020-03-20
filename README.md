@@ -5,6 +5,7 @@ The Third-Party API's have changed over time  and several code changes were need
 ## Additional Install Notes
 
 As far as i know, this project isn't compatible with PHP >= 7.3. 
+The whole project with all models loaded is about 3 GB in size.
 
 ### Elastisearch
 The easiest way to run Elastisearch is with the docker image. Download Version 5.5.0
