@@ -40,6 +40,7 @@ If you got an error like
 The elastisearch index must be build:
 
 `bin/console fos:elastica:populate`
+
 `bin/console fos:elastica:populate --env=prod`
 
 ---
