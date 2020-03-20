@@ -18,7 +18,7 @@ The easiest way to run Elastisearch is with the docker image. Download Version 5
 `docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e "xpack.security.enabled=false" docker.elastic.co/elasticsearch/elasticsearch:5.5.0`
 
 ### Composer
-If you run PHP > 7.2, then you have to run composer with 
+If you run PHP > 7.2.0, then you have to run composer with 
 `composer install --ignore-platform-reqs`
 
 
