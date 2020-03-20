@@ -7,8 +7,8 @@ The Third-Party API's have changed over time  and several code changes were need
 As far as i know, this project isn't compatible with PHP >= 7.3. 
 The whole project with all models loaded is about 3 GB in size.
 
-### Elastisearch
-The easiest way to run Elastisearch is with the docker image. Download Version 5.5.0
+### Elasticsearch
+The easiest way to run Elasticsearch is with the docker image. Download Version 5.5.0
 
 `docker pull docker.elastic.co/elasticsearch/elasticsearch:5.5.0`
 
@@ -40,7 +40,7 @@ If you got an error like
 
 `no such index [index: app]`
 
-The elastisearch index must be build:
+The elasticsearch index must be build:
 
 `bin/console fos:elastica:populate`
 
