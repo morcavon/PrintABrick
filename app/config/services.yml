@@ -48,9 +48,10 @@ services:
 
     # ElasticSearch
 
-    FOS\ElasticaBundle\Manager\RepositoryManagerInterface:
-        alias: fos_elastica.repository_manager
+    #FOS\ElasticaBundle\Manager\RepositoryManagerInterface:
+    #    alias: fos_elastica.repository_manager
 
     AppBundle\Service\SearchService:
         arguments:
-            - '@fos_elastica.manager'
+    #        - '@fos_elastica.manager'
+            - '@doctrine.orm.entity_manager'

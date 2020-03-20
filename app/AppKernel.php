@@ -21,7 +21,7 @@ class AppKernel extends Kernel
             new Oneup\FlysystemBundle\OneupFlysystemBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
-            new FOS\ElasticaBundle\FOSElasticaBundle()
+            //new FOS\ElasticaBundle\FOSElasticaBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

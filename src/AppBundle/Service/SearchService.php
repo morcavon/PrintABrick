@@ -9,7 +9,7 @@ use AppBundle\Model\SetSearch;
 use AppBundle\Repository\Search\ModelRepository;
 use AppBundle\Repository\Search\SetRepository;
 use FOS\ElasticaBundle\HybridResult;
-use FOS\ElasticaBundle\Manager\RepositoryManagerInterface;
+//use FOS\ElasticaBundle\Manager\RepositoryManagerInterface;
 
 class SearchService
 {
@@ -22,12 +22,13 @@ class SearchService
     /**
      * SearchService constructor.
      *
-     * @param RepositoryManagerInterface $repositoryManager
      */
-    public function __construct(RepositoryManagerInterface $repositoryManager)
+    public function __construct(\Doctrine\ORM\EntityManager $em)
     {
-        $this->modelRepository = $repositoryManager->getRepository(Model::class);
-        $this->setRepository = $repositoryManager->getRepository(Set::class);
+        /*$this->modelRepository = $repositoryManager->getRepository(Model::class);
+        $this->setRepository = $repositoryManager->getRepository(Set::class);*/
+        $this->modelRepository = $em->getRepository(Model::class);
+        $this->setRepository = $em->getRepository(Set::class);
     }
 
     /**
