@@ -7,9 +7,10 @@ src/LoaderBundle/Service/RebrickableLoader.php
 Added a fourth column "material_id" which is new in the csv file. You have to add this field in the database manually! (material_id, varchar 128, null)
 
 ## Install Notes
-The easiest way to run Elastisearch is with the docker image. Download Version 5.5.0 and run it with
-
+The easiest way to run Elastisearch is with the docker image. Download Version 5.5.0
 `docker pull docker.elastic.co/elasticsearch/elasticsearch:5.5.0`
+ and run it with
+`docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e "xpack.security.enabled=false" docker.elastic.co/elasticsearch/elasticsearch:5.5.0`
 
 
 # PrintABrick
