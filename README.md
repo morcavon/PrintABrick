@@ -46,7 +46,7 @@ The elastisearch index must be build:
 
 `bin/console fos:elastica:populate --env=prod`
 
-
+---
 
 The import from rebrickable may complete with the message "Done with X errors.". This is normal. Most probably some parts/sets are faulty and haven't be imported.
 
