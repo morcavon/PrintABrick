@@ -40,6 +40,13 @@ class Part
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\LDraw\Model", inversedBy="parts", fetch="EAGER")
      */
     private $model;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $material_id;
 
     /**
      * Part constructor.

@@ -13,10 +13,20 @@ The easiest way to run Elastisearch is with the docker image. Download Version 5
  
 `docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e "xpack.security.enabled=false" docker.elastic.co/elasticsearch/elasticsearch:5.5.0`
 
+I added a run script to the bin directory which executes this command.
+
 ### Composer
 If you run PHP > 7.2.0, then you have to run composer with 
 `composer install --ignore-platform-reqs`
 
+### stl2pov
+Simply download the zip file and set the executable path to [absolute_path]/stltools-3.3/stl2pov.py either at the `composer install` stage or later in the parameters.yml. Python has to be installed.
+
+### LDView
+Make sure you use the osmesa version, which is the CLI version of the program.
+You may need additional packages for ubuntu/debian:
+[libgl2ps1](https://launchpad.net/ubuntu/bionic/amd64/libgl2ps1/1.3.9-4)
+[libjpeg62-turbo](https://debian.pkgs.org/sid/debian-main-amd64/libjpeg62-turbo_1.5.2-2+b1_amd64.deb.html)
 
 From this point on, the original Readme text:
 
