@@ -32,6 +32,9 @@ You may need additional packages for ubuntu/debian:
 [libjpeg62-turbo](https://debian.pkgs.org/sid/debian-main-amd64/libjpeg62-turbo_1.5.2-2+b1_amd64.deb.html)
 
 
+### NGinx
+[config](https://symfony.com/doc/3.3/setup/web_server_configuration.html#nginx)
+
 ## Troubleshooting
 If you got an error like
 
@@ -42,6 +45,10 @@ The elastisearch index must be build:
 `bin/console fos:elastica:populate`
 
 `bin/console fos:elastica:populate --env=prod`
+
+
+
+The import from rebrickable may complete with the message "Done with X errors.". This is normal. Most probably some parts/sets are faulty and haven't be imported.
 
 ---
 From this point on, the original Readme text:
