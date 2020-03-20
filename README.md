@@ -4,6 +4,8 @@ The Third-Party API's have changed over time  and several code changes were need
 
 ## Additional Install Notes
 
+As far as i know, this project isn't compatible with PHP >= 7.3. 
+
 ### Elastisearch
 The easiest way to run Elastisearch is with the docker image. Download Version 5.5.0
 
