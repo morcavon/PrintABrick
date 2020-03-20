@@ -166,7 +166,7 @@ class SetService
         /** @var Inventory_Part $inventoryPart */
         foreach ($inventoryParts as $inventoryPart) {
             if ($model = $inventoryPart->getPart()->getModel()) {
-                $color = $inventoryPart->getCOlor();
+                $color = $inventoryPart->getColor();
 
                 if (!isset($colors[$color->getId()]['color'])) {
                     $colors[$color->getId()]['color'] = $color;

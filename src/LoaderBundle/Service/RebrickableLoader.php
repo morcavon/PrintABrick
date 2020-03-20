@@ -52,6 +52,7 @@ class RebrickableLoader extends BaseLoader
                 'Loading CSV files into database...',
             ]);
 
+            $this->loadColorTable($this->csvFile['colors']);
             $this->loadCategoryTable($this->csvFile['part_categories']);
             $this->loadPartTable($this->csvFile['parts']);
             $this->loadThemeTable($this->csvFile['themes']);
@@ -70,7 +71,7 @@ class RebrickableLoader extends BaseLoader
         } catch (\Exception $e) {
             //            $this->writeOutput(['Rollback back']);
 //            $connection->rollBack();
-
+            echo $e->getMessage();
             throw new LoadingRebrickableFailedException();
         }
     }
@@ -80,7 +81,7 @@ class RebrickableLoader extends BaseLoader
      */
     private function loadCsvFiles()
     {
-        $array = ['inventories', 'inventory_parts', 'inventory_sets', 'sets', 'themes', 'parts', 'part_categories'];
+        $array = ['inventories', 'inventory_parts', 'inventory_sets', 'sets', 'themes', 'parts', 'part_categories', 'colors'];
 
         $this->writeOutput([
             '<fg=cyan>------------------------------------------------------------------------------</>',
@@ -103,15 +104,15 @@ class RebrickableLoader extends BaseLoader
     private function truncateTables()
     {
         $query = '
-            DELETE FROM rebrickable_inventory_parts;
-            DELETE FROM rebrickable_inventory_sets;
-            DELETE FROM rebrickable_inventory;
-            DELETE FROM rebrickable_set;
-            DELETE FROM rebrickable_theme;
-            DELETE FROM rebrickable_part;
-            DELETE FROM rebrickable_category;
+            TRUNCATE rebrickable_inventory_parts;
+            TRUNCATE rebrickable_inventory_sets;
+            TRUNCATE rebrickable_inventory;
+            TRUNCATE rebrickable_set;
+            TRUNCATE rebrickable_theme;
+            TRUNCATE rebrickable_part;
+            TRUNCATE rebrickable_category;
+            TRUNCATE color;
            ';
-
         return $this->em->getConnection()->prepare($query)->execute();
     }
 
@@ -189,8 +190,8 @@ class RebrickableLoader extends BaseLoader
         return $this->loadCsvFile($csv, 'rebrickable_category', '(`id`,`name`)');
     }
 
-//    private function loadColorTable($csv)
-//    {
-//        return $this->loadCsvFile($csv, 'color', '(`id`,`name`,`rgb`, @var) SET transparent = IF(@var=\'t\',1,0)');
-//    }
+    private function loadColorTable($csv)
+    {
+        return $this->loadCsvFile($csv, 'color', '(`id`,`name`,`rgb`, @var) SET transparent = IF(@var=\'t\',1,0)');
+    }
 }
