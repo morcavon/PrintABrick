@@ -1,3 +1,6 @@
+# !NON FUNCTIONAL!
+
+
 # Updated 2020-03-20
 
 The Third-Party API's have changed over time  and several code changes were needed to run this project successfully. As of now, it should work out of the box with the additional install notes and the original install notes below.
