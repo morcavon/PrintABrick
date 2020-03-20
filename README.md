@@ -6,6 +6,11 @@ Added an iteration counter for parent models and abort model if it has too many 
 src/LoaderBundle/Service/RebrickableLoader.php
 Added a fourth column "material_id" which is new in the csv file. You have to add this field in the database manually! (material_id, varchar 128, null)
 
+## Install Notes
+The easiest way to run Elastisearch is with the docker image. Download Version 5.5.0 and run it with
+
+`docker pull docker.elastic.co/elasticsearch/elasticsearch:5.5.0`
+
 
 # PrintABrick
 Web catalogue of LEGO® parts for 3D printing
