@@ -22,7 +22,9 @@ abstract class BaseImageLoader implements LoaderInterface
         curl_exec($resource);
         $status = curl_getinfo($resource, CURLINFO_HTTP_CODE);
         curl_close($resource);
-
-        return $status === 200 ? true : false;
+        if($status == 301 || $status == 200) {
+            return true;
+        }
+        return false;
     }
 }
