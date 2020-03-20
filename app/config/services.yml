@@ -36,6 +36,9 @@ services:
         arguments:
            $cache: '@app.brickset.cache_provider'
 
+    FrontBundle\Form\Search\SetSearchType:
+        arguments:
+            $showOnlyThemesContainingSets: %app.show_only_themes_containing_sets%
 
     # Filesystem
 

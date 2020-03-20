@@ -23,19 +23,32 @@ class SetSearchType extends AbstractType
     /** @var SetRepository */
     private $setRepository;
 
+    private $showOnlyThemesContainingSets;
+    
     /**
      * SetSearchType constructor.
      *
      * @param EntityManagerInterface $em
      */
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, bool $showOnlyThemesContainingSets)
     {
         $this->themeRepository = $em->getRepository(Theme::class);
         $this->setRepository = $em->getRepository(Set::class);
+        $this->showOnlyThemesContainingSets = $showOnlyThemesContainingSets;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $themes = $this->themeRepository->findAll();
+        if($this->showOnlyThemesContainingSets) {
+            $tmp = $themes;
+            foreach($tmp as $k => $theme) {
+                if($theme->getSets()->count() == 0) {
+                    unset($themes[$k]);
+                }
+            }
+        }
+        
         $builder
             ->add('query', TextType::class, [
                 'required' => false,
@@ -64,7 +77,7 @@ class SetSearchType extends AbstractType
             ])
             ->add('theme', ChoiceType::class, [
                 'label' => 'set.form.theme',
-                'choices' => $this->themeRepository->findAll(),
+                'choices' => $themes,
                 'choice_label' => 'fullName',
                 'choice_translation_domain' => false,
                 'group_by' => function ($theme, $key, $index) {

@@ -62,6 +62,13 @@ The elasticsearch index must be build:
 
 The import from rebrickable may complete with the message "Done with X errors.". This is normal. Most probably some parts/sets are faulty and haven't be imported.
 
+## Added Features
+app/config/config.yml
+
+`app.show_only_themes_containing_sets: true`
+
+If this is set to true, only themes are visible in the drop down, that have sets in it.
+
 ---
 From this point on, the original Readme text:
 
