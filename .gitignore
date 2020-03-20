@@ -22,3 +22,4 @@
 /var/media/
 /web/media/
 .php_cs.cache
+/nbproject/
