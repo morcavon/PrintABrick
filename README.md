@@ -35,6 +35,8 @@ You may need additional packages for ubuntu/debian:
 ### NGinx
 [config](https://symfony.com/doc/3.3/setup/web_server_configuration.html#nginx)
 
+You may comment the "internal" statement in the Prod block
+
 ## Troubleshooting
 
 You can enable dev mode with /app_dev.php
