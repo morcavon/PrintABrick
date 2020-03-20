@@ -22,7 +22,7 @@ If you run PHP > 7.2.0, then you have to run composer with
 `composer install --ignore-platform-reqs`
 
 ### stl2pov
-Simply download the zip file and set the executable path to [absolute_path]/stltools-3.3/stl2pov.py either at the `composer install` stage or later in the parameters.yml. Python has to be installed.
+Simply download and extract the zip file and set the executable path to [absolute_path]/stltools-3.3/stl2pov.py either at the `composer install` stage or later in the parameters.yml. Python has to be installed.
 
 ### LDView
 Make sure you use the osmesa version, which is the CLI version of the program.
