@@ -31,6 +31,18 @@ You may need additional packages for ubuntu/debian:
 [libgl2ps1](https://launchpad.net/ubuntu/bionic/amd64/libgl2ps1/1.3.9-4)
 [libjpeg62-turbo](https://debian.pkgs.org/sid/debian-main-amd64/libjpeg62-turbo_1.5.2-2+b1_amd64.deb.html)
 
+
+## Troubleshooting
+If you got an error like
+
+`no such index [index: app]`
+
+The elastisearch index must be build:
+
+`bin/console fos:elastica:populate`
+`bin/console fos:elastica:populate --env=prod`
+
+---
 From this point on, the original Readme text:
 
 # PrintABrick
