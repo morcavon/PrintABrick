@@ -36,6 +36,11 @@ You may need additional packages for ubuntu/debian:
 [config](https://symfony.com/doc/3.3/setup/web_server_configuration.html#nginx)
 
 ## Troubleshooting
+
+You can enable dev mode with /app_dev.php
+
+---
+
 If you got an error like
 
 `no such index [index: app]`
