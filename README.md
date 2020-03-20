@@ -1,10 +1,6 @@
-# Changes
+# Updated 2020-03-20
 
-src/LoaderBundle/Service/ModelLoader.php
-Added an iteration counter for parent models and abort model if it has too many parents.
-
-src/LoaderBundle/Service/RebrickableLoader.php
-Added a fourth column "material_id" which is new in the csv file. You have to add this field in the database manually! (material_id, varchar 128, null)
+The Third-Party API's have changed over time  and several code changes were needed to run this project successfully. As of now, it should work out of the box with the additional install notes and the original install notes below.
 
 ## Install Notes
 
