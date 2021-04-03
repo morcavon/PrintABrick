@@ -122,6 +122,22 @@ abstract class BaseLoader
         return $temp;
     }
 
+    protected function downloadFile_gz($url, $name)
+    {
+        $this->writeOutput(['Loading file from: <comment>'.$url.'</comment>']);
+        $temp = sys_get_temp_dir().'/'.$name;
+
+        $ctx = stream_context_create([], [
+            'notification' => [$this, 'progressCallback'],
+        ]);
+
+        if (false === file_put_contents($temp, fopen($url, 'r', 0, $ctx))) {
+            throw new WriteErrorException($temp);
+        }
+
+        return $temp;
+    }
+
     protected function writeOutput(array $lines)
     {
         if ($this->output) {
