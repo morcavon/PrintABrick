@@ -1,3 +1,30 @@
+# Updated for docker
+I did some modifications to use docker-compose.
+
+## Development environment
+- Docker v19.03.13
+- Docker-compose v1.28.6
+
+## How to use
+Only one command `docker-compose up` is required.
+
+First, enter your api keys to the docker-compose.yaml file
+- `BRICKSET_API=` => `BRICKSET_API=your-brickset-api-key`
+- `REBRICKABLE_API=` => `REBRICKABLE_API=your_rebrickable_api_key`
+
+And then,
+
+`cd docker`
+
+`docker-compose up -d`
+
+Please wait about one hour (or more...). It will take long time for the first run.
+
+That's all. Connect to http://127.0.0.1:8000 from your host machine's browser.
+
+
+Here comes the original README from ToxicCrack/PrintABrick.
+
 # Updated 2020-03-20
 
 The Third-Party API's have changed over time  and several code changes were needed to run this project successfully. As of now, it should work out of the box with the additional install notes and the original install notes below.
