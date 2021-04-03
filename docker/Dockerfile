@@ -29,6 +29,14 @@ RUN rm -rf /etc/localtime
 RUN dpkg-reconfigure -f noninteractive tzdata
 
 
+# get the source
+#COPY ./project /PrintABrick
+WORKDIR /tmp
+RUN wget https://github.com/morcavon/PrintABrick/archive/refs/heads/master.zip -O master.zip
+RUN unzip -d / master.zip
+RUN mv /PrintABrick-master /PrintABrick
+
+
 # prepare pov ray
 WORKDIR /PrintABrick
 RUN wget https://github.com/POV-Ray/povray/archive/refs/tags/v3.7.0.7.zip -O povray.zip
@@ -55,13 +63,6 @@ WORKDIR ldview-4.3
 RUN make -j$((`nproc`-1)) -C OSMesa && make -C OSMesa install
 RUN cp OSMesa/ldviewrc.sample ~/.ldviewrc
 
-
-# get the source
-#COPY ./project /PrintABrick
-WORKDIR /tmp
-RUN wget https://github.com/morcavon/PrintABrick/archive/refs/heads/master.zip -O master.zip
-RUN unzip master.zip
-RUN mv PrintABrick-master /PrintABrick
 
 # install back-end
 WORKDIR /PrintABrick
